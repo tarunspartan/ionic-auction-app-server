@@ -226,3 +226,7 @@ var products = mongoose.model("products", {
 app.listen(process.env.PORT | 3000, function() {
   console.log("Listening at 3000");
 });
+
+app.get("/",function(req,res){
+    res.send("<h1>Hello world!</h1>");
+})
