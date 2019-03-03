@@ -83,9 +83,6 @@ app.post("/updateBidPrice", function(req, res) {
         bidprice: req.body.bidprice,
         bidder: req.body.mail
       }
-      // $set: {
-      //     "bidder": req.body.mail,
-      // }
     },
     function(err, response) {
       if (err)
@@ -110,6 +107,24 @@ app.get("/sell", function(req, res) {
     // console.log(data);
     else return res.send(data);
   });
+});
+
+app.get("/category", function(req, res) {
+  // let category = req.query.category;
+  products.find(
+    {
+      category: req.query.category
+    },
+    function(err, data) {
+      if (err) {
+        return res.json({
+          Status: "Error"
+        });
+      } else {
+        return res.send(data);
+      }
+    }
+  );
 });
 
 app.get("/getitem", function(req, res) {
