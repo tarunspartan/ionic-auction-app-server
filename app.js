@@ -152,7 +152,7 @@ app.get("/getuser", function(req, res) {
   // console.log(req.query)
   users.find(
     {
-      mail: req.query.mail
+      email: req.query.mail
     },
     function(err, data) {
       if (err)
