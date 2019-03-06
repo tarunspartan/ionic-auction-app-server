@@ -146,6 +146,25 @@ app.get("/getitem", function(req, res) {
   );
 });
 
+app.get("/getuser", function(req, res) {
+  // console.log(req);
+  // let email = req.query._id;
+  // console.log(req.query)
+  users.find(
+    {
+      mail: req.query.mail
+    },
+    function(err, data) {
+      if (err)
+        return res.json({
+          status: "Error"
+        });
+      // console.log(data);
+      else return res.send(data);
+    }
+  );
+});
+
 app.get("/sellbyuser", function(req, res) {
   let usermail = req.query.mail;
   products.find(
