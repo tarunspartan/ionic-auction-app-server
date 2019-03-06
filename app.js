@@ -147,9 +147,6 @@ app.get("/getitem", function(req, res) {
 });
 
 app.get("/getuser", function(req, res) {
-  // console.log(req);
-  // let email = req.query.mail;
-  console.log(req.query.mail);
   users.find(
     {
       email: req.query.mail
