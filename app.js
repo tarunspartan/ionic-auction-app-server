@@ -220,7 +220,7 @@ app.delete("/deleteitem/:id", function(req, res) {
 });
 
 mongoose.connect(
-  "mongodb://<username>:<password>@ds223605.mlab.com:23605/autionapp",
+  "mongodb://tarunspartan:Qwerty.123@ds223605.mlab.com:23605/autionapp",
   {
     useNewUrlParser: true
   }
