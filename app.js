@@ -25,30 +25,6 @@ app.post("/signup", function(req, res) {
   });
 });
 
-app.post("/webrtc",function(req,res){
-    webrtc.create(req.body, function(err,response){
-      if(err)
-        return res.json({
-          status: "Error"
-        });
-      else
-        return res.json({
-            status: "OK"
-         });
-    });
-});
-
-app.get("/webrtc", function(req, res) {
-  // console.log(req.query)
-  products.find({}, function(err, data) {
-    if (err)
-      return res.json({
-        status: "Error"
-      });
-    // console.log(data);
-    else return res.send(data);
-  });
-});
 
 app.post("/signin", function(req, res) {
   let usermail = req.body.mail;
@@ -242,6 +218,32 @@ app.delete("/deleteitem/:id", function(req, res) {
         });
     }
   );
+});
+
+
+app.post("/webrtc",function(req,res){
+    webrtcusers.create(req.body, function(err,response){
+      if(err)
+        return res.json({
+          status: "Error"
+        });
+      else
+        return res.json({
+            status: "OK"
+         });
+    });
+});
+
+app.get("/webrtc", function(req, res) {
+  // console.log(req.query)
+  webrtcusers.find({}, function(err, data) {
+    if (err)
+      return res.json({
+        status: "Error"
+      });
+    // console.log(data);
+    else return res.send(data);
+  });
 });
 
 mongoose.connect(
