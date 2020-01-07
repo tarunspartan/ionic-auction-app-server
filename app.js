@@ -25,6 +25,31 @@ app.post("/signup", function(req, res) {
   });
 });
 
+app.post("/webrtc",function(req,res){
+    webrtc.create(req.body, function(err,response){
+      if(err)
+        return res.json({
+          status: "Error"
+        });
+      else
+        return res.json({
+            status: "OK"
+         });
+    });
+});
+
+app.get("/webrtc", function(req, res) {
+  // console.log(req.query)
+  products.find({}, function(err, data) {
+    if (err)
+      return res.json({
+        status: "Error"
+      });
+    // console.log(data);
+    else return res.send(data);
+  });
+});
+
 app.post("/signin", function(req, res) {
   let usermail = req.body.mail;
   let userpassword = req.body.password;
@@ -241,6 +266,9 @@ var products = mongoose.model("products", {
   image: String,
   category: String,
   description: String
+});
+var webrtcusers = mongoose.model("webrtcusers",{
+  email: String
 });
 
 app.listen(process.env.PORT || 3000, function() {
